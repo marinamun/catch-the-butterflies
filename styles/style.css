@@ -9,7 +9,7 @@ body {
 
 /*START SCREEN*/
 #start-screen {
-  display: none;
+  display: flex;
   justify-content: center;
   margin: 30px auto;
   height: 500px;
@@ -21,7 +21,8 @@ body {
 }
 
 #game-screen {
-  display: block;
+  display: none;
+  position: relative;
   margin: 30px auto;
   height: 500px;
   width: 80%;
@@ -29,6 +30,7 @@ body {
   background-size: cover;
   border: solid 5px white;
   border-radius: 25px;
+  animation: slide 10s linear infinite;
 }
 #end-screen {
   display: none;
@@ -41,4 +43,14 @@ body {
   border-radius: 25px;
   justify-content: center;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+/*Animation keyframes*/
+@keyframes slide {
+  0% {
+    background-position: 1000px 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
 }
