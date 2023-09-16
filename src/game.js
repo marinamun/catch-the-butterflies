@@ -2,18 +2,18 @@ class Game {
   constructor() {
     this.lives = 3;
     this.gameOver = false;
-    this.player = new Player();
-    
+    this.player = new Player(35, 170);
   }
   start() {
-    alert("beginning!!!");
+    
     this.gameLoop();
   }
   gameLoop() {
     this.update();
-    
+
     requestAnimationFrame(() => this.gameLoop());
   }
-  update() {}
-
+  update() {
+    this.player.move();
+  }
 }
