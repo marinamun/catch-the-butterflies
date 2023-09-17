@@ -24,9 +24,23 @@ class Player {
     this.element.style.left = `${this.left}px`;
     this.element.style.top = `${this.top}px`;
   }
-  updatePosition(){
-    this.left += this.directionX;
-    this.top += this.directionY;
+  updatePosition() {
+    //If it goes too much to the left, stop it. If it goes too much to the right, stop it. Else, keep it moving.
+    if (this.left < 30) {
+      this.left = 30;
+    } else if (this.left > 820) {
+      this.left = 820;
+    } else {
+      this.left += this.directionX;
+    }
 
+    //If it goes too much to the top, stop it. If it goes too much to the bottom, stop it. Else, keep it moving.
+    if (this.top < 10) {
+      this.top = 10;
+    } else if (this.top > 360) {
+      this.top = 360;
+    } else {
+      this.top += this.directionY;
+    }
   }
 }
