@@ -19,7 +19,7 @@ class Player {
     this.directionY = 0;
   }
   move() {
-    //
+    //to update CSS
     this.updatePosition();
     this.element.style.left = `${this.left}px`;
     this.element.style.top = `${this.top}px`;
