@@ -1,7 +1,7 @@
 class Obstacle {
   constructor(left, top) {
     this.element = document.createElement("img");
-    this.element.src = "images/mosquito.png";
+    this.element.src = "/images/mosquito.png";
     this.element.style.position = "absolute";
     this.element.style.height = `75px`;
     this.element.style.width = `90px`;
