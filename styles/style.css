@@ -1,24 +1,54 @@
 body {
   height: 600px;
-  background: radial-gradient(
-    848px at 10% 20%,
-    rgba(174, 231, 165, 0.9) 0%,
-    rgb(181, 205, 154) 90%
-  );
+
+  background-image: url("../images/bluesky.jpg");
+  background-size: cover;
+}
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
 /*START SCREEN*/
 #start-screen {
   display: flex;
   justify-content: center;
+  text-align: center;
   margin: 30px auto;
   height: 500px;
   width: 80%;
   background-color: #f6f6da;
-  border: solid 5px white;
+  border: solid 2px white;
+  filter: drop-shadow(0 0 0.75rem #ffffff);
   border-radius: 25px;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
+#start-btn {
+  margin-top: 20px;
+  
+  padding: 15px 30px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 25px;
+  color: #52b3c4;
+  border: 1.5px solid #68c9dc;
+  border-radius: 20px;
+  background-color: white;
+}
+#start-btn:hover {
+  
+  background-color: #68c9dc;
+  color: white;
+  border: white;
+  transition: background-color 0.3s ease;
+}
+#start-info{
+margin-top: 80px;
+margin-right: 50px;
+}
+
+/*GAME SCREEN*/
 
 #game-screen {
   display: none;
@@ -26,11 +56,17 @@ body {
   margin: 30px auto;
   height: 500px;
   width: 80%;
-  background-image: url("../images/grass.png");
+  background-image: url("../images/grass2.png");
   background-size: cover;
-  border: solid 5px white;
+  border: solid 2px white;
+  filter: drop-shadow(0 0 0.75rem #ffffff);
   border-radius: 25px;
   animation: slide 10s linear infinite;
+}
+#game-screen h4 {
+  line-height: 0.1;
+  margin-left: 10px;
+  color: white;
 }
 #end-screen {
   display: none;
@@ -39,7 +75,8 @@ body {
   height: 500px;
   width: 80%;
   background-color: #f6f6da;
-  border: solid 5px white;
+  filter: drop-shadow(0 0 0.75rem #ffffff);
+  border: solid 2px white;
   border-radius: 25px;
   justify-content: center;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;

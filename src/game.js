@@ -75,6 +75,7 @@ class Game {
 
         if (this.score === 20) {
           this.gameOver = true; ////you win!!!!!!!!
+          
         }
       } else {
         nextButterflies.push(butterfly);

@@ -5,6 +5,7 @@ class Player {
     this.element.style.position = "absolute";
     this.element.style.height = `140px`;
     this.element.style.width = `130px`;
+    
     const gameScreen = document.getElementById("game-screen");
     gameScreen.appendChild(this.element);
 

@@ -54,3 +54,4 @@ document.addEventListener("keyup", (event) => {
     game.player.directionY = 0;
   }
 });
+
