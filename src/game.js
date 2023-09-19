@@ -8,6 +8,7 @@ class Game {
     this.score = 0;
     this.obstacles = [];
     this.lives = 3;
+    this.gameOver = false;
 
     //More obstacles showing with the setinterval
     this.intervalId = setInterval(() => {
@@ -20,8 +21,14 @@ class Game {
   }
   gameLoop() {
     this.update();
-
-    requestAnimationFrame(() => this.gameLoop());
+    
+    if (this.gameOver) {
+        gameScreen.style.display = "none";
+        let endScreen = document.getElementById("end-screen");
+        endScreen.style.display = "block"
+    } else {
+      requestAnimationFrame(() => this.gameLoop());
+    }
   }
   update() {
     //initiates the movement of all the elements
@@ -35,6 +42,11 @@ class Game {
 
         let liveCounter = document.getElementById("lives");
         liveCounter.innerHTML = this.lives;
+
+        if (this.lives < 1) {
+          this.gameOver = true;
+        }
+        
       } else {
         nextObstacles.push(obstacle);
       }
