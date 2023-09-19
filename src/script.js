@@ -16,10 +16,18 @@ startBtn.addEventListener("click", (event) => {
   startGame();
 });
 restartBtn.addEventListener("click", (event) => {
+    //I need to remove the 3 elements and the 2 intervals for everything to restart correctly
   game.player.element.remove();
+
   game.obstacles.forEach((obstacle) => {
     obstacle.element.remove();
   });
+  game.butterflies.forEach((butterfly) => {
+    butterfly.element.remove();
+  });
+  clearInterval(game.obstacleIntervalId);
+  clearInterval(game.butterflyIntervalId);
+  
   startGame();
 });
 
