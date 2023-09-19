@@ -30,11 +30,16 @@ class Game {
   }
   gameLoop() {
     this.update();
+
+    if (this.lives < 1) {
+      this.gameOver = true;
+    }
     
     if (this.gameOver) {
         gameScreen.style.display = "none";
         let endScreen = document.getElementById("end-screen");
-        endScreen.style.display = "block"
+        startScreen.style.display = "none"
+        endScreen.style.display = "flex"
     } else {
       requestAnimationFrame(() => this.gameLoop());
     }
@@ -74,7 +79,6 @@ class Game {
         scoreCounter.innerHTML = this.score;
 
         if (this.score === 20) {
-          this.gameOver = true; ////you win!!!!!!!!
           
         }
       } else {
