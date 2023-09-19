@@ -18,6 +18,7 @@ class Game {
   }
   start() {
     this.gameLoop();
+    
   }
   gameLoop() {
     this.update();
