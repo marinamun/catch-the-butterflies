@@ -7,8 +7,9 @@ class Game {
     this.player = new Player(35, 170);
     this.score = 0;
     this.obstacles = [];
+    this.lives = 3;
 
-//More obstacles showing with the setinterval
+    //More obstacles showing with the setinterval
     this.intervalId = setInterval(() => {
       let randomTop = Math.floor(Math.random() * (300 - 30)) + 30;
       this.obstacles.push(new Obstacle(850, randomTop));
@@ -25,8 +26,19 @@ class Game {
   update() {
     //initiates the movement of all the elements
     this.player.move();
+    const nextObstacles = [];
     this.obstacles.forEach((obstacle) => {
       obstacle.move();
+      if (this.player.didCollide(obstacle)) {
+        this.lives -= 1;
+        obstacle.element.remove();
+
+        let liveCounter = document.getElementById("lives");
+        liveCounter.innerHTML = this.lives;
+      } else {
+        nextObstacles.push(obstacle);
+      }
     });
+    this.obstacles = nextObstacles;
   }
 }
