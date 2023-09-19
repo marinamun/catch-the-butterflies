@@ -1,7 +1,7 @@
 class Player {
   constructor(left, top) {
     this.element = document.createElement("img");
-    this.element.src = "../images/boy.png";
+    this.element.src = "images/boy.png";
     this.element.style.position = "absolute";
     this.element.style.height = `140px`;
     this.element.style.width = `130px`;

@@ -6,7 +6,7 @@ class Game {
     this.gameOver = false;
     this.player = new Player(35, 170);
     this.score = 0;
-    this.obstacles = [new Obstacle(850, 60)];
+    this.obstacles = [];
 
 //More obstacles showing with the setinterval
     this.intervalId = setInterval(() => {
