@@ -1,7 +1,7 @@
 class Obstacle {
   constructor(left, top) {
     this.element = document.createElement("img");
-    this.element.src = "/images/mosquito.png";
+    this.element.src = "images/mosquito.png";
     this.element.style.position = "absolute";
     this.element.style.height = `75px`;
     this.element.style.width = `90px`;
@@ -11,7 +11,6 @@ class Obstacle {
     this.top = top;
     this.element.style.left = `${this.left}px`;
     this.element.style.top = `${this.top}px`;
-    
   }
   move() {
     //to update CSS
@@ -21,7 +20,6 @@ class Obstacle {
   updatePosition() {
     if (this.left < 20) {
       this.element.remove();
-      
     } else {
       this.left -= 1;
     }
