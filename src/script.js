@@ -16,7 +16,7 @@ startBtn.addEventListener("click", (event) => {
   startGame();
 });
 restartBtn.addEventListener("click", (event) => {
-    //I need to remove the 3 elements and the 2 intervals for everything to restart correctly
+  //I need to remove the 3 elements and the 2 intervals for everything to restart correctly
   game.player.element.remove();
 
   game.obstacles.forEach((obstacle) => {
@@ -25,9 +25,20 @@ restartBtn.addEventListener("click", (event) => {
   game.butterflies.forEach((butterfly) => {
     butterfly.element.remove();
   });
+  game.hearts.forEach((heart) => {
+    heart.element.remove();
+  });
   clearInterval(game.obstacleIntervalId);
   clearInterval(game.butterflyIntervalId);
+  clearInterval(game.heartIntervalId);
+
   
+  let liveCounter = document.getElementById("lives");
+  liveCounter.innerHTML = 3;
+
+  let scoreCounter = document.getElementById("score");
+  scoreCounter.innerHTML = 0;
+
   startGame();
 });
 
@@ -54,4 +65,3 @@ document.addEventListener("keyup", (event) => {
     game.player.directionY = 0;
   }
 });
-

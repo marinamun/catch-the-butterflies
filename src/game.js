@@ -14,26 +14,26 @@ class Game {
 
     //More obstacles showing with the setinterval
     this.obstacleIntervalId = setInterval(() => {
-      let randomTop = Math.floor(Math.random() * (300 - 30)) + 30;
+      let randomTop = Math.floor(Math.random() * (400 - 30)) + 30;
       this.obstacles.push(new Obstacle(850, randomTop));
     }, 2000);
 
     //Create a butterfly and add it to the game
-     this.butterflyIntervalId = setInterval(() => {
-       let randomTop = Math.floor(Math.random() * (300 - 30)) + 30;
-       this.butterflies.push(new Butterfly(850, randomTop));
-     }, 2500);
+    this.butterflyIntervalId = setInterval(() => {
+      let randomTop = Math.floor(Math.random() * (400 - 30)) + 30;
+      this.butterflies.push(new Butterfly(850, randomTop));
+    }, 2500);
 
-     //Add hearts to the game
-     this.heartIntervalId = setInterval(() => {
-       let randomTop = Math.floor(Math.random() * (300 - 30)) + 30;
-       this.hearts.push(new Heart(850, randomTop));
-     }, 2500);
+    //Add hearts to the game
+    this.heartIntervalId = setInterval(() => {
+      let randomTop = Math.floor(Math.random() * (400 - 30)) + 30;
+      this.hearts.push(new Heart(850, randomTop));
+    }, 2500);
+
     
   }
   start() {
     this.gameLoop();
-    
   }
   gameLoop() {
     this.update();
@@ -41,12 +41,13 @@ class Game {
     if (this.lives < 1) {
       this.gameOver = true;
     }
-    
+
     if (this.gameOver) {
-        gameScreen.style.display = "none";
-        let endScreen = document.getElementById("end-screen");
-        startScreen.style.display = "none"
-        endScreen.style.display = "flex"
+      gameScreen.style.display = "none";
+      let endScreen = document.getElementById("end-screen");
+      startScreen.style.display = "none";
+      endScreen.style.display = "flex";
+      
     } else {
       requestAnimationFrame(() => this.gameLoop());
     }
@@ -86,7 +87,6 @@ class Game {
         scoreCounter.innerHTML = this.score;
 
         if (this.score === 20) {
-          
         }
       } else {
         nextButterflies.push(butterfly);
@@ -105,7 +105,7 @@ class Game {
         livesCounter.innerHTML = this.lives;
 
         if (this.lives === 5) {
-          alert("You win!!!!")
+          alert("You win!!!!");
         }
       } else {
         nextHearts.push(heart);
