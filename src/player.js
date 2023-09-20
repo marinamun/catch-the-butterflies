@@ -1,10 +1,10 @@
 class Player {
   constructor(left, top) {
     this.element = document.createElement("img");
-    this.element.src = "images/boy.png";
+    this.element.src = "images/skater.png";
     this.element.style.position = "absolute";
     this.element.style.height = `140px`;
-    this.element.style.width = `130px`;
+    this.element.style.width = `70px`;
     
     const gameScreen = document.getElementById("game-screen");
     gameScreen.appendChild(this.element);

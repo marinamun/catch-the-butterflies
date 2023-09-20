@@ -1,10 +1,10 @@
 class Obstacle {
   constructor(left, top) {
     this.element = document.createElement("img");
-    this.element.src = "images/mosquito.png";
+    this.element.src = "images/obstacle.png";
     this.element.style.position = "absolute";
-    this.element.style.height = `75px`;
-    this.element.style.width = `90px`;
+    this.element.style.height = `50px`;
+    this.element.style.width = `70px`;
     const gameScreen = document.getElementById("game-screen");
     gameScreen.appendChild(this.element);
     this.left = left;
