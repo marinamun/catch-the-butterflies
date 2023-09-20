@@ -11,6 +11,7 @@ class Game {
     this.hearts = [];
     this.lives = 3;
     this.gameOver = false;
+    this.bullets = [];
 
     //More obstacles showing with the setinterval
     this.obstacleIntervalId = setInterval(() => {
@@ -30,7 +31,7 @@ class Game {
       this.hearts.push(new Heart(850, randomTop));
     }, 2500);
 
-    
+    //Add bullet to the game
   }
   start() {
     this.gameLoop();
@@ -47,7 +48,6 @@ class Game {
       let endScreen = document.getElementById("end-screen");
       startScreen.style.display = "none";
       endScreen.style.display = "flex";
-      
     } else {
       requestAnimationFrame(() => this.gameLoop());
     }
@@ -86,7 +86,9 @@ class Game {
         let scoreCounter = document.getElementById("score");
         scoreCounter.innerHTML = this.score;
 
-        if (this.score === 20) {
+        if (this.score === 5) {
+          alert("You win! Good job🎉");
+          
         }
       } else {
         nextButterflies.push(butterfly);
@@ -103,14 +105,35 @@ class Game {
 
         let livesCounter = document.getElementById("lives");
         livesCounter.innerHTML = this.lives;
-
-        if (this.lives === 5) {
-          alert("You win!!!!");
-        }
       } else {
         nextHearts.push(heart);
       }
     });
     this.hearts = nextHearts;
+    //Make the bullets move (Eric's help):
+
+    const obstaclesToKeep = this.obstacles.map((element) => element);
+    this.obstacles.forEach((obstacle) => {
+      obstacle.move();
+    });
+    for (let i = 0; i < this.bullets.length; i++) {
+      let bullet = this.bullets[i];
+      bullet.move();
+      this.obstacles.forEach((obstacle, index) => {
+        if (obstacle.didCollide(bullet)) {
+          obstacle.element.remove();
+          bullet.element.remove();
+          obstaclesToKeep.splice(index, 1);
+          this.bullets.splice(i, 1);
+          i--;
+        }
+      });
+      this.obstacles = obstaclesToKeep;
+    }
+  }
+  shoot() {
+    // Create a bullet with the player's position
+    const bullet = new Bullets(this.player.left, this.player.top);
+    this.bullets.push(bullet);
   }
 }

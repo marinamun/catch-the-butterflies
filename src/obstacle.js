@@ -24,4 +24,19 @@ class Obstacle {
       this.left -= 1;
     }
   }
+  didCollide(bullet) {
+    const obstacleRect = this.element.getBoundingClientRect();
+    const bulletRect = bullet.element.getBoundingClientRect();
+
+    if (
+      obstacleRect.left < bulletRect.right &&
+      obstacleRect.right > bulletRect.left &&
+      obstacleRect.top < bulletRect.bottom &&
+      obstacleRect.bottom > bulletRect.top
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }

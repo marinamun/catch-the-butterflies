@@ -61,8 +61,12 @@ h4 {
   margin-right: 50px;
 }
 #keyboard-image {
-  width: 140px;
-  height: 140px;
+  width: 290px;
+  height: 100px;
+}
+#keyboard-image:hover{
+  width: 340px;
+  height: 120px;
 }
 
 /*GAME SCREEN*/

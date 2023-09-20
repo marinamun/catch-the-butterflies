@@ -51,6 +51,8 @@ document.addEventListener("keydown", (event) => {
     game.player.directionY = -1;
   } else if (event.code === "KeyS") {
     game.player.directionY = 1;
+  } else if (event.code === "Space"){
+    game.shoot();
   }
 });
 
@@ -63,5 +65,7 @@ document.addEventListener("keyup", (event) => {
     game.player.directionY = 0;
   } else if (event.code === "KeyS") {
     game.player.directionY = 0;
+  } else if (event.code === "Space") {
+    return;
   }
 });
