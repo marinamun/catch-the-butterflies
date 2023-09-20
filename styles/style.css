@@ -64,7 +64,7 @@ h4 {
   width: 290px;
   height: 100px;
 }
-#keyboard-image:hover{
+#keyboard-image:hover {
   width: 340px;
   height: 120px;
 }
@@ -114,7 +114,7 @@ h4 {
   height: 260px;
   margin-top: 100px;
 }
-#restart{
+#restart {
   margin-top: 10px;
 
   padding: 15px 30px;
@@ -124,13 +124,31 @@ h4 {
   border: 1.5px solid #68c9dc;
   border-radius: 20px;
   background-color: white;
-
 }
 #restart:hover {
   background-color: #68c9dc;
   color: white;
   border: white;
   transition: background-color 0.3s ease;
+}
+
+#credits {
+  text-align: center;
+  font-size: 10px;
+  line-height: 1px;
+  font-family: "Sniglet", cursive;
+  color: white;
+}
+#credits a {
+  color: white;
+  text-decoration: none;
+}
+#credits:hover{
+  font-size: 12px;
+}
+#credits a:hover {
+  font-size: 12px;
+  
 }
 /*Animation keyframes*/
 @keyframes slide {

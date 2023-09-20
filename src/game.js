@@ -15,20 +15,23 @@ class Game {
 
     //More obstacles showing with the setinterval
     this.obstacleIntervalId = setInterval(() => {
+      const left = this.gameScreen.clientWidth - 60;
       let randomTop = Math.floor(Math.random() * (400 - 30)) + 30;
-      this.obstacles.push(new Obstacle(850, randomTop));
+      this.obstacles.push(new Obstacle(left, randomTop));
     }, 2000);
 
     //Create a butterfly and add it to the game
     this.butterflyIntervalId = setInterval(() => {
+      const left = this.gameScreen.clientWidth - 60;
       let randomTop = Math.floor(Math.random() * (400 - 30)) + 30;
-      this.butterflies.push(new Butterfly(850, randomTop));
+      this.butterflies.push(new Butterfly(left, randomTop));
     }, 2500);
 
     //Add hearts to the game
     this.heartIntervalId = setInterval(() => {
+      const left = this.gameScreen.clientWidth - 60;
       let randomTop = Math.floor(Math.random() * (400 - 30)) + 30;
-      this.hearts.push(new Heart(850, randomTop));
+      this.hearts.push(new Heart(left, randomTop));
     }, 2500);
 
     //Add bullet to the game
@@ -86,9 +89,9 @@ class Game {
         let scoreCounter = document.getElementById("score");
         scoreCounter.innerHTML = this.score;
 
-        if (this.score === 5) {
+        if (this.score === 50) {
           alert("You win! Good job🎉");
-          
+          this.reset();
         }
       } else {
         nextButterflies.push(butterfly);

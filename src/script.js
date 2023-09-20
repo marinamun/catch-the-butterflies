@@ -32,7 +32,6 @@ restartBtn.addEventListener("click", (event) => {
   clearInterval(game.butterflyIntervalId);
   clearInterval(game.heartIntervalId);
 
-  
   let liveCounter = document.getElementById("lives");
   liveCounter.innerHTML = 3;
 
@@ -51,7 +50,8 @@ document.addEventListener("keydown", (event) => {
     game.player.directionY = -1;
   } else if (event.code === "KeyS") {
     game.player.directionY = 1;
-  } else if (event.code === "Space"){
+  } else if (event.code === "Space") {
+    event.preventDefault();
     game.shoot();
   }
 });

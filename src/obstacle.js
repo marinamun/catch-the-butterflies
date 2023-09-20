@@ -24,6 +24,7 @@ class Obstacle {
       this.left -= 1;
     }
   }
+  //Help to shoot
   didCollide(bullet) {
     const obstacleRect = this.element.getBoundingClientRect();
     const bulletRect = bullet.element.getBoundingClientRect();
