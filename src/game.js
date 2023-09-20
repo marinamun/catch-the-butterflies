@@ -8,6 +8,7 @@ class Game {
     this.score = 0;
     this.obstacles = [];
     this.butterflies = [];
+    this.hearts = [];
     this.lives = 3;
     this.gameOver = false;
 
@@ -21,6 +22,12 @@ class Game {
      this.butterflyIntervalId = setInterval(() => {
        let randomTop = Math.floor(Math.random() * (300 - 30)) + 30;
        this.butterflies.push(new Butterfly(850, randomTop));
+     }, 2500);
+
+     //Add hearts to the game
+     this.heartIntervalId = setInterval(() => {
+       let randomTop = Math.floor(Math.random() * (300 - 30)) + 30;
+       this.hearts.push(new Heart(850, randomTop));
      }, 2500);
     
   }
@@ -86,5 +93,24 @@ class Game {
       }
     });
     this.butterflies = nextButterflies;
+    //Make hearts move
+    const nextHearts = [];
+    this.hearts.forEach((heart) => {
+      heart.move();
+      if (this.player.didCollide(heart)) {
+        this.lives += 1;
+        heart.element.remove();
+
+        let livesCounter = document.getElementById("lives");
+        livesCounter.innerHTML = this.lives;
+
+        if (this.lives === 5) {
+          alert("You win!!!!")
+        }
+      } else {
+        nextHearts.push(heart);
+      }
+    });
+    this.hearts = nextHearts;
   }
 }
