@@ -18,7 +18,7 @@ class Game {
       const left = this.gameScreen.clientWidth - 60;
       let randomTop = Math.floor(Math.random() * (400 - 30)) + 30;
       this.obstacles.push(new Obstacle(left, randomTop));
-    }, 2000);
+    }, 1500);
 
     //Create a butterfly and add it to the game
     this.butterflyIntervalId = setInterval(() => {
@@ -118,7 +118,7 @@ class Game {
       }
     });
     this.hearts = nextHearts;
-    
+
     //Make the bullets move:
 
     const obstaclesToKeep = this.obstacles.map((element) => element);
