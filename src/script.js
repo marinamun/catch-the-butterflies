@@ -21,6 +21,9 @@ startBtn.addEventListener("click", (event) => {
 restartBtn.addEventListener("click", (event) => {
   //I need to remove the 3 elements and the 2 intervals for everything to restart correctly
   game.player.element.remove();
+  game.bullets.forEach((bullet) => {
+    bullet.element.remove();
+  });
 
   game.obstacles.forEach((obstacle) => {
     obstacle.element.remove();
