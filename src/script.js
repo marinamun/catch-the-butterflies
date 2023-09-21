@@ -53,6 +53,8 @@ document.addEventListener("keydown", (event) => {
   } else if (event.code === "Space") {
     event.preventDefault();
     game.shoot();
+    const shootAudio = document.getElementById("shoot-audio");
+    shootAudio.play();
   }
 });
 

@@ -32,7 +32,7 @@ class Game {
       const left = this.gameScreen.clientWidth - 60;
       let randomTop = Math.floor(Math.random() * (400 - 30)) + 30;
       this.hearts.push(new Heart(left, randomTop));
-    }, 2500);
+    }, 3500);
 
     //Add bullet to the game
   }
@@ -66,6 +66,8 @@ class Game {
       if (this.player.didCollide(obstacle)) {
         this.lives -= 1;
         obstacle.element.remove();
+        const collisionAudio = document.getElementById("collision-audio");
+        collisionAudio.play();
 
         let liveCounter = document.getElementById("lives");
         liveCounter.innerHTML = this.lives;
@@ -84,7 +86,10 @@ class Game {
       butterfly.move();
       if (this.player.didCollide(butterfly)) {
         this.score += 1;
+
         butterfly.element.remove();
+         const scoreAudio = document.getElementById("score-audio");
+         scoreAudio.play();
 
         let scoreCounter = document.getElementById("score");
         scoreCounter.innerHTML = this.score;
@@ -122,6 +127,7 @@ class Game {
     for (let i = 0; i < this.bullets.length; i++) {
       let bullet = this.bullets[i];
       bullet.move();
+      
       this.obstacles.forEach((obstacle, index) => {
         if (obstacle.didCollide(bullet)) {
           obstacle.element.remove();

@@ -5,6 +5,7 @@ class Player {
     this.element.style.position = "absolute";
     this.element.style.height = `140px`;
     this.element.style.width = `70px`;
+    this.speed = 2;
 
     const gameScreen = document.getElementById("game-screen");
     gameScreen.appendChild(this.element);
@@ -32,7 +33,7 @@ class Player {
     } else if (this.left > 820) {
       this.left = 820;
     } else {
-      this.left += this.directionX;
+      this.left += this.directionX * this.speed;
     }
 
     //If it goes too much to the top, stop it. If it goes too much to the bottom, stop it. Else, keep it moving.
@@ -41,7 +42,7 @@ class Player {
     } else if (this.top > 360) {
       this.top = 360;
     } else {
-      this.top += this.directionY;
+      this.top += this.directionY * this.speed;
     }
   }
   didCollide(obstacle) {
