@@ -118,7 +118,8 @@ class Game {
       }
     });
     this.hearts = nextHearts;
-    //Make the bullets move (Eric's help):
+    
+    //Make the bullets move:
 
     const obstaclesToKeep = this.obstacles.map((element) => element);
     this.obstacles.forEach((obstacle) => {
