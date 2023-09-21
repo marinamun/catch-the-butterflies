@@ -5,10 +5,13 @@ const endScreen = document.getElementById("end-screen");
 const restartBtn = document.getElementById("restart");
 let game;
 
+
 function startGame() {
   startScreen.style.display = "none";
   gameScreen.style.display = "block";
   endScreen.style.display = "none";
+  const backgroundAudio = document.getElementById("background-audio");
+  backgroundAudio.play();
   game = new Game();
   game.start();
 }

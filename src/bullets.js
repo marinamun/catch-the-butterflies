@@ -17,11 +17,11 @@ class Bullets {
   move() {
     // Update bullet position
 
-    if (this.left > 300) {
+    if (this.left > 900) {
       this.element.remove();
     } else {
-      this.left += 1;
-      console.log(this.left);
+      this.left += 1 * this.speed;
+      
     }
     this.updatePosition();
   }

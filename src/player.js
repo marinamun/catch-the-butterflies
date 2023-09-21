@@ -3,8 +3,8 @@ class Player {
     this.element = document.createElement("img");
     this.element.src = "images/skater.png";
     this.element.style.position = "absolute";
-    this.element.style.height = `140px`;
-    this.element.style.width = `70px`;
+    this.element.style.height = `110px`;
+    this.element.style.width = `55px`;
     this.speed = 2;
 
     const gameScreen = document.getElementById("game-screen");
@@ -39,8 +39,8 @@ class Player {
     //If it goes too much to the top, stop it. If it goes too much to the bottom, stop it. Else, keep it moving.
     if (this.top < 10) {
       this.top = 10;
-    } else if (this.top > 360) {
-      this.top = 360;
+    } else if (this.top > 400) {
+      this.top = 400;
     } else {
       this.top += this.directionY * this.speed;
     }
